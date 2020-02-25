@@ -1,0 +1,28 @@
+#!/bin/bash
+
+a=1
+CNT=`cat file | wc -l`
+while [ $a -le $CNT ]
+do
+LINE=`cat file | head -$a | tail -1`
+APP_NAME=`echo $LINE | cut -d" " -f1`
+APP_NAME1=`echo $LINE | cut -d" " -f2 | cut -d"." -f1`
+APP_NAME2=`echo $LINE | cut -d" " -f2 | cut -d"." -f2-3 | cut -d"," -f1`
+APP_NAME3=`echo $LINE | cut -d"," -f2 | cut -d"." -f1`
+APP_NAME4=`echo $LINE | cut -d"," -f2 | cut -d"." -f2-3`
+if [[ "$APP_NAME4" =~ "/" ]] 
+then
+	APP_NAME5=`echo $APP_NAME4 | cut -d"/" -f1`
+	DIRETORY=`echo $APP_NAME4 | cut -d"/" -f2-`
+else
+	APP_NAME5=`echo $APP_NAME4`
+fi
+
+echo $APP_NAME
+echo $APP_NAME1
+echo $APP_NAME2
+echo $APP_NAME3
+echo $APP_NAME5
+echo "/$DIRETORY"
+a=`expr $a + 1`
+done

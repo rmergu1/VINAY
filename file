@@ -1,0 +1,3 @@
+app-name uat-app.apps.com, prod-app.apps.com/tmp/v2
+app2-name uat-app2.apps.com/tmp/ra2, prod-app2.apps.com, prod-app3.apps.com/tmp/raki2
+app4-name uat-app4.apps.com
